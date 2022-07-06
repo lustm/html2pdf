@@ -34,7 +34,7 @@ public class Html2Pdf {
             //html转pdf
             convert(url, pdfFile);
             // 以流的形式下载文件。
-            InputStream fis = new BufferedInputStream(new FileInputStream(pdfFile));
+            InputStream fis = new BufferedInputStream(Files.newInputStream(Paths.get(pdfFile)));
             byte[] buffer = new byte[fis.available()];
             fis.read(buffer);
             fis.close();
