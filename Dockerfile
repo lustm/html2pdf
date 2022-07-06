@@ -3,6 +3,9 @@ FROM openjdk:11.0.12-jre-buster
 RUN sed -i s@/deb.debian.org/@/mirrors.aliyun.com/@g /etc/apt/sources.list
 RUN sed -i s@/security.debian.org/@/mirrors.aliyun.com/@g /etc/apt/sources.list
 RUN apt-get clean && apt-get update
+RUN apt-get install libXrender* -y
+RUN apt-get install libfontconfig* -y
+RUN apt-get install libXext* -y
 RUN apt-get install wkhtmltopdf -y
 RUN apt-get install -y locales
 RUN localedef -c -f UTF-8 -i zh_CN zh_CN.utf8
