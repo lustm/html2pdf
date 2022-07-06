@@ -7,6 +7,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 /**
  * 需要配置wkhtmltopdf环境变量
@@ -88,7 +90,7 @@ public class Html2Pdf {
                 //html转pdf
                 convert(srcTempFilePath, pdfFile);
                 // 以流的形式下载文件。
-                InputStream fis = new BufferedInputStream(new FileInputStream(pdfFile));
+                InputStream fis = new BufferedInputStream(Files.newInputStream(Paths.get(pdfFile)));
                 byte[] buffer = new byte[fis.available()];
                 fis.read(buffer);
                 fis.close();
