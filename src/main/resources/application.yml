@@ -1,0 +1,6 @@
+server:
+  port: 80
+
+temp:
+  html: /tmp/htmltopdf/html
+  pdf: /tmp/htmltopdf/pdf
